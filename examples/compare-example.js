@@ -1,14 +1,17 @@
 let people = {};
 let names = [];
+
 const Sam = ['Jack', 'Zach', 'Jennifer', 'Emma', 'Edward', 'Caroline', 'Rohin', 'Xan'];
 const Emma = ['Zach', 'Edward', 'Sam', 'Rohin', 'Jennifer'];
 const Zach = ['Jack', 'Emma', 'Caroline', 'Xan'];
+
 people['Sam'] = Sam;
 people['Emma'] = Emma;
 people['Zach'] = Zach;
 names.push('Sam');
 names.push('Emma');
 names.push('Zach');
+
 let allMutuals = {};
 
 const comparePeople = (A, B) => {
