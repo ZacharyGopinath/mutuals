@@ -10,7 +10,7 @@ document.getElementById('addFriend').addEventListener('click', function () {
         `
         let namesList = [];
         for (let i = 0; i < listLi.length; i++) {
-            
+
             namesList.push(listLi[i].textContent)
         }
         document.getElementById('newFriendName').value = ''
@@ -21,17 +21,19 @@ document.getElementById('addFriend').addEventListener('click', function () {
 document.getElementById('addPerson').addEventListener('click', function () {
     const list = document.getElementById('listGroup');
     const listLi = list.getElementsByTagName("li");
-    if (document.getElementById('newPersonName').value.length && listLi.length > 1){
+    if (document.getElementById('newPersonName').value.length && listLi.length > 1) {
         names.push(document.getElementById('newPersonName').value)
         const fnNames = [];
         if (names.includes(document.getElementById('newPersonName').value)) {
             for (let i = 0; i < listLi.length; i++) {
-            
+
                 i !== 0 ? fnNames.push(listLi[i].textContent) : null
-            
-        }
-        names.push(fnNames)
-        console.log(names)
+
+            }
+            //names.push(fnNames)
+            //console.log(names)
+            people[document.getElementById('newPersonName').value] = fnNames;
+            console.log(people)
 
         }
         else {
@@ -120,7 +122,7 @@ document.getElementById('calculateButton').addEventListener('click', function ()
         for (let z = 0; z < names.length; z++) {
             let comparerB = names[z];
             if (comparerB !== comparerA) {
-            comparePeople(comparerA, comparerB)
+                comparePeople(comparerA, comparerB)
             }
         }
 
