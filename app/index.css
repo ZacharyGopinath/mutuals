@@ -1,16 +1,69 @@
 :root {
-    --red: #e63946;
-    --white: #f1faee;
-    --light-blue: #a8dadc;
-    --med-blue: #457b9d;
-    --dark-blue:#1d3557;
+  --red: #e63946;
+  --white: #f1faee;
+  --light-blue: #a8dadc;
+  --med-blue: #457b9d;
+  --dark-blue: #1d3557;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 body {
-    background-color:var(--white);
-    font-family: 'Roboto', sans-serif;
-    color:var(--dark-blue);
-    transition:0.2s;
+  background-color: var(--white);
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark-blue);
+  transition: 0.2s;
+  overflow: hidden;
+  -webkit-animation: fadein 3s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 3s;
+  /* Internet Explorer */
+  -o-animation: fadein 3s;
+  /* Opera < 12.1 */
+  animation: fadein 3s;
 }
 
 .button-red {
@@ -22,7 +75,7 @@ body {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: Circular,Helvetica,sans-serif;
+  font-family: Circular, Helvetica, sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -.01em;
@@ -74,7 +127,38 @@ body {
   transform: translateY(.125rem);
 }
 
-.modal-header{
-    background-color:var(--red);
-    color:var(--white);
+.modal-header {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.friendsButtonsDivClass {
+  margin: 0 auto;
+  max-width: 50%;
+  margin-top: 1.1em !important;
+}
+
+.friendsButtonsDivClass>button {
+  margin-left: 2px;
+  margin-top: 2px;
+}
+
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+  border: 0;
+}
+
+.modal:before {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-flex;
+  text-align: left;
+  vertical-align: middle;
 }

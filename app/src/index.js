@@ -1,13 +1,14 @@
 let people = {};
 let names = [];
+
 document.getElementById('addFriend').addEventListener('click', function () {
     const list = document.getElementById('listGroup');
     const listLi = list.getElementsByTagName("li");
     const name = document.getElementById('newFriendName').value;
     if (name.length) {
         const newListItem = `
-        <li class="list-group-item">${name}</li>
-        `
+            <li class="list-group-item">${name}</li>
+            `
         let namesList = [];
         for (let i = 0; i < listLi.length; i++) {
 
@@ -17,6 +18,7 @@ document.getElementById('addFriend').addEventListener('click', function () {
         namesList.includes(name) ? window.alert('This friend is already added!') : list.innerHTML += newListItem;
     }
 })
+
 
 document.getElementById('addPerson').addEventListener('click', function () {
     const list = document.getElementById('listGroup');
@@ -34,7 +36,9 @@ document.getElementById('addPerson').addEventListener('click', function () {
             //console.log(names)
             people[document.getElementById('newPersonName').value] = fnNames;
             console.log(people)
-
+            addFriendButton(document.getElementById('newPersonName').value, fnNames);
+            document.getElementById('newPersonName').value = '';
+            document.getElementById('listGroup').innerHTML = `<li class="list-group-item" id='listHeader'>Added Friends Will Appear Here</li>`
         }
         else {
             window.alert('This friend has already been added!')
@@ -44,15 +48,17 @@ document.getElementById('addPerson').addEventListener('click', function () {
         window.alert('Not all fields completed!')
     }
 })
-/*
+
+
 const sampleNames = ['jliu', 'john', 'liu']
 function addFriendButton(id, names) {
     const newModal = `
     <button class="button-red" role="button" data-toggle="modal" data-target="#${id}">${id}</button>
 
     <div class="modal fade" id="${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+   
+      <div class="modal-content" style='display: inline-block;'>
         <div class="modal-header">
           <h3 class="modal-title" id="exampleModalLabel" >${id} and Friends</h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -65,25 +71,20 @@ function addFriendButton(id, names) {
                 <li class="list-group-item" id='listHeader' style='font-size: 1.2em !important;'>Friends:</li>
             </ul>
         </div>
-        <div class="modal-footer">
-        <button class="button-red" type='button'>Delete Friend</button>
-        </div>
       </div>
+      
     </div>
   </div>
   `
-  document.getElementById('buttonsDiv').innerHTML += newModal;
-  const listId = id + '-listGroup';
-  for (let i = 0; i < names.length; i++) {
-    const newListItem = `
+    document.getElementById('friendButtonsDiv').innerHTML += newModal;
+    const listId = id + '-listGroup';
+    for (let i = 0; i < names.length; i++) {
+        const newListItem = `
     <li class="list-group-item">${names[i]}</li>
     `
-    document.getElementById(listId).innerHTML += newListItem;
-  }
-  console.log(names)
+        document.getElementById(listId).innerHTML += newListItem;
+    }
 }
-addFriendButton('john', sampleNames )
-*/
 
 document.getElementById('calculateButton').addEventListener('click', function () {
     let people = {};
